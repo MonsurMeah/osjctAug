@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1072402278716",
+    "project_id": "osjct2",
+    "storage_bucket": "osjct2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072402278716:android:4e240a7bf6b487be55d639",
+        "android_client_info": {
+          "package_name": "com.example.osjcttwo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0oqBjS2IHpKRiqIIUa_279CWsWGgfzuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
