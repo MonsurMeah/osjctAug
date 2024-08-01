@@ -25,7 +25,7 @@ public class ListPopulate extends AppCompatActivity {
         //GLos
         site_modelArrayList = new ArrayList<>();
 
-        //THIS LINE SHOULD BE SAVED
+
 
 
 
