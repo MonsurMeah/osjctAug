@@ -7,11 +7,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ListPopulate extends AppCompatActivity {
+public class ListPopulateGlos extends AppCompatActivity {
     ListView listView;
 
-    ArrayList<site_model> site_modelArrayList;
-    private static MyCustomAdapter adapter;
+    ArrayList<site_model> site_modelArrayListGlos;
+    private static MyCustomAdapter adapter2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class ListPopulate extends AppCompatActivity {
 
         //2 - Data Source: ArrayList<site_model>
         //GLos
-        site_modelArrayList = new ArrayList<>();
+        site_modelArrayListGlos = new ArrayList<>();
 
 
 
@@ -55,31 +55,31 @@ public class ListPopulate extends AppCompatActivity {
 
 
 
-        site_modelArrayList.add(siteModel1);
-        site_modelArrayList.add(siteModel2);
-        site_modelArrayList.add(siteModel3);
-        site_modelArrayList.add(siteModel4);
-        site_modelArrayList.add(siteModel5);
-        site_modelArrayList.add(siteModel6);
-        site_modelArrayList.add(siteModel7);
-        site_modelArrayList.add(siteModel8);
-        site_modelArrayList.add(siteModel9);
-        site_modelArrayList.add(siteModel10);
-        site_modelArrayList.add(siteModel11);
-        site_modelArrayList.add(siteModel12);
-        site_modelArrayList.add(siteModel13);
-        site_modelArrayList.add(siteModel14);
-        site_modelArrayList.add(siteModel15);
-        site_modelArrayList.add(siteModel16);
-        site_modelArrayList.add(siteModel17);
-        site_modelArrayList.add(siteModel18);
+        site_modelArrayListGlos.add(siteModel1);
+        site_modelArrayListGlos.add(siteModel2);
+        site_modelArrayListGlos.add(siteModel3);
+        site_modelArrayListGlos.add(siteModel4);
+        site_modelArrayListGlos.add(siteModel5);
+        site_modelArrayListGlos.add(siteModel6);
+        site_modelArrayListGlos.add(siteModel7);
+        site_modelArrayListGlos.add(siteModel8);
+        site_modelArrayListGlos.add(siteModel9);
+        site_modelArrayListGlos.add(siteModel10);
+        site_modelArrayListGlos.add(siteModel11);
+        site_modelArrayListGlos.add(siteModel12);
+        site_modelArrayListGlos.add(siteModel13);
+        site_modelArrayListGlos.add(siteModel14);
+        site_modelArrayListGlos.add(siteModel15);
+        site_modelArrayListGlos.add(siteModel16);
+        site_modelArrayListGlos.add(siteModel17);
+        site_modelArrayListGlos.add(siteModel18);
 
         //Adapter
-        adapter = new MyCustomAdapter(site_modelArrayList,getApplicationContext());
+        adapter2 = new MyCustomAdapter(site_modelArrayListGlos,getApplicationContext());
 
 
 
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter2);
 
     }
 }

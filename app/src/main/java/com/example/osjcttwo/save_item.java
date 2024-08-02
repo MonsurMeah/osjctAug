@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 public class save_item extends AppCompatActivity {
 
-    private Button button, button2;
+    private Button buttonlinc;
+    private Button buttonglos;
 
     private TextView textView4;
 
@@ -20,7 +21,8 @@ public class save_item extends AppCompatActivity {
         setContentView(R.layout.save_item);
 
         textView4 = findViewById(R.id.textView4);
-        button = findViewById(R.id.button);
+        buttonglos = findViewById(R.id.buttonglos);
+        buttonlinc =findViewById(R.id.buttonlinc);
 
 
 
@@ -35,18 +37,35 @@ public class save_item extends AppCompatActivity {
         }
 
         //the main_activity waits for the button to be pressed
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonglos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent i = new Intent(
                         getApplicationContext(),
                         //Default MainActivity3.class
-                        ListPopulate.class
+                        ListPopulateGlos.class
 
                 );
 
                 startActivity(i);
+
+
+            }
+        });
+
+        buttonlinc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent j = new Intent(
+                        getApplicationContext(),
+                        //Default MainActivity3.class
+                        ListPopulateGlos.class
+
+                );
+
+                startActivity(j);
 
 
             }
