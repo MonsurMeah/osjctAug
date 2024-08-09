@@ -1,9 +1,11 @@
 package com.example.osjcttwo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -18,18 +20,14 @@ public class ListPopulate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //1. AdapterView: a ListView
+        // Initialize the ListView
         listView = findViewById(R.id.listview);
+        // Initialize Button
+        //Button btnSecondList = findViewById(R.id.btnSecondList);
 
-        //2 - Data Source: ArrayList<site_model>
-        //GLos
+        // Initialize the data source for the first list
         site_modelArrayList = new ArrayList<>();
-
-
-
-
-
-        site_model siteModel1 = new site_model("AppleTrees",R.drawable.appletrees);
+        site_model siteModel1 = new site_model("AppleTrees", R.drawable.appletrees);
         site_model siteModel2 = new site_model("Beckside",R.drawable.beckside);
         site_model siteModel3 = new site_model("Boultham Park",R.drawable.boulthampk);
         site_model siteModel4 = new site_model("Chestnut Court",R.drawable.chestnutcourt);
@@ -48,8 +46,7 @@ public class ListPopulate extends AppCompatActivity {
         site_model siteModel17 = new site_model("Windsor St",R.drawable.windsorst);
         site_model siteModel18 = new site_model("Test",R.drawable.windsorst);
 
-
-
+        // Add more items as needed...
 
         site_modelArrayList.add(siteModel1);
         site_modelArrayList.add(siteModel2);
@@ -70,12 +67,16 @@ public class ListPopulate extends AppCompatActivity {
         site_modelArrayList.add(siteModel17);
         site_modelArrayList.add(siteModel18);
 
-        //Adapter
-        adapter = new MyCustomAdapter(site_modelArrayList,getApplicationContext());
+        // Add more items...
 
-
-
+        // Adapter for the first ListView
+        adapter = new MyCustomAdapter(site_modelArrayList, getApplicationContext());
         listView.setAdapter(adapter);
 
+        // Set button click listener to open SecondListActivity
+        //btnSecondList.setOnClickListener(v -> {
+        //    Intent intent = new Intent(ListPopulate.this, SecondListActivity.class);
+        //    startActivity(intent);
+        //});
     }
 }

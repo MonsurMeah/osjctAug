@@ -21,6 +21,7 @@ public class save_item extends AppCompatActivity {
 
         textView4 = findViewById(R.id.textView4);
         button = findViewById(R.id.button);
+        button2 = findViewById(R.id.button2);
 
 
 
@@ -43,6 +44,41 @@ public class save_item extends AppCompatActivity {
                         getApplicationContext(),
                         //Default MainActivity3.class
                         ListPopulate.class
+
+                );
+
+                startActivity(i);
+
+
+            }
+        });
+
+        //the main_activity waits for the button to be pressed
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(
+                        getApplicationContext(),
+                        //Default MainActivity3.class
+                        ListPopulate.class
+
+                );
+
+                startActivity(i);
+
+
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(
+                        getApplicationContext(),
+                        //Default MainActivity3.class
+                        ListPopulateLinc.class
 
                 );
 

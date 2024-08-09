@@ -21,6 +21,12 @@
         android:theme="@style/Theme.Osjcttwo"
         tools:targetApi="31">
         <activity
+            android:name=".ListPopulateLinc"
+            android:exported="false" />
+        <activity
+            android:name=".activity_second_list"
+            android:exported="false" />
+        <activity
             android:name=".ListPopulate"
             android:exported="false" />
         <activity
