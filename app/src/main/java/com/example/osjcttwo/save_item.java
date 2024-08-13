@@ -1,7 +1,6 @@
 package com.example.osjcttwo;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +9,7 @@ import android.widget.TextView;
 
 public class save_item extends AppCompatActivity {
 
-    private Button button, button2;
-
+    private Button button, button2, button3, button4;
     private TextView textView4;
 
     @Override
@@ -21,9 +19,6 @@ public class save_item extends AppCompatActivity {
 
         textView4 = findViewById(R.id.textView4);
         button = findViewById(R.id.button);
-        button2 = findViewById(R.id.button2);
-
-
 
 
         // Retrieve the asset tag from the intent
@@ -35,58 +30,17 @@ public class save_item extends AppCompatActivity {
             textView4.setText(assetTag);
         }
 
-        //the main_activity waits for the button to be pressed
+        // Set up button click listeners
+
+        // Button 1: Navigate to ListPopulateGlos activity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent i = new Intent(
-                        getApplicationContext(),
-                        //Default MainActivity3.class
-                        ListPopulate.class
-
-                );
-
+                Intent i = new Intent(getApplicationContext(), ListsMenu.class);
                 startActivity(i);
-
-
             }
         });
 
-        //the main_activity waits for the button to be pressed
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(
-                        getApplicationContext(),
-                        //Default MainActivity3.class
-                        ListPopulate.class
-
-                );
-
-                startActivity(i);
-
-
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(
-                        getApplicationContext(),
-                        //Default MainActivity3.class
-                        ListPopulateLinc.class
-
-                );
-
-                startActivity(i);
-
-
-            }
-        });
-
+        
     }
 }

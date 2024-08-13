@@ -82,6 +82,12 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-database")
 
+    //https://www.youtube.com/watch?v=pOKPQ8rYe6g&t=346s
+    //Google Maps
+    //AIzaSyCgQdY5-KNkZtmpU1KhvqoSdKWcPD-yt_M
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+
+
 
 
 

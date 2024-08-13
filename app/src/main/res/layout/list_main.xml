@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btnOpenList1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lincolnshire Sites" />
+
+    <Button
+        android:id="@+id/btnOpenList2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gloucestershire Sites" />
+
+
+
+    <Button
+        android:id="@+id/btnOpenList3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Oxfordshire Sites" />
+
+    <Button
+        android:id="@+id/btnOpenList4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wiltshire Sites" />
+
+
+    <Button
+        android:id="@+id/mapbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OSJCT Sites Map" />
+
+</LinearLayout>
