@@ -22,6 +22,20 @@ public class LincSites extends AppCompatActivity {
         site_modelArrayList1 = new ArrayList<>();
         site_modelArrayList1.add(new site_model("AppleTrees", R.drawable.appletrees));
         site_modelArrayList1.add(new site_model("Beckside", R.drawable.beckside));
+        site_modelArrayList1.add(new site_model("Boulthampk", R.drawable.boulthampk));
+        site_modelArrayList1.add(new site_model("Digby Court", R.drawable.digbycourt));
+        site_modelArrayList1.add(new site_model("Eresby Hall", R.drawable.eresbyhall));
+        site_modelArrayList1.add(new site_model("Ermine House", R.drawable.erminehouse));
+        site_modelArrayList1.add(new site_model("Beckside", R.drawable.beckside));
+        site_modelArrayList1.add(new site_model("Foxby Court", R.drawable.foxbycourt));
+        site_modelArrayList1.add(new site_model("Gregory House", R.drawable.gregoryhouse));
+        site_modelArrayList1.add(new site_model("Hartsholme House", R.drawable.hartsholme));
+        site_modelArrayList1.add(new site_model("Oxlip House", R.drawable.oxliphouse));
+        site_modelArrayList1.add(new site_model("Patchett Lodge", R.drawable.patchettlodge));
+        site_modelArrayList1.add(new site_model("Skirbeck Court", R.drawable.skirbeckcourt));
+        site_modelArrayList1.add(new site_model("Southfield House", R.drawable.southfieldhouse));
+        site_modelArrayList1.add(new site_model("The Poplars", R.drawable.whitefriars));
+        site_modelArrayList1.add(new site_model("Whitefriars", R.drawable.whitefriars));
         // Add more items...
 
         adapter1 = new MyCustomAdapter(site_modelArrayList1, getApplicationContext());
