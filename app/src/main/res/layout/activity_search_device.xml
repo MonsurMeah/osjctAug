@@ -1,0 +1,52 @@
+<!-- res/layout/activity_search_device.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextSearchMake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Make to Search" />
+
+    <Button
+        android:id="@+id/buttonSearchMake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search by Make" />
+
+    <EditText
+        android:id="@+id/editTextSearchModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Model to Search"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonSearchModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search by Model" />
+
+    <EditText
+        android:id="@+id/editTextSearchSerial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Serial Number to Search"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonSearchSerial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search by Serial Number" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search results will appear here"
+        android:paddingTop="16dp" />
+</LinearLayout>
