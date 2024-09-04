@@ -69,8 +69,9 @@ public class save_item extends AppCompatActivity {
         String make = editTextMake.getText().toString().trim();
         String model = editTextModel.getText().toString().trim();
         String serialNumber = editTextSerialNumber.getText().toString().trim();
+        String assetTag = textView4.getText().toString().trim();
 
-        if (make.isEmpty() || model.isEmpty() || serialNumber.isEmpty()) {
+        if (make.isEmpty() || model.isEmpty() || assetTag.isEmpty() || serialNumber.isEmpty()) {
             Toast.makeText(this, "Please enter all the details", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -79,7 +80,7 @@ public class save_item extends AppCompatActivity {
         String id = databaseDevices.push().getKey();
 
         // Create a Device object
-        Device device = new Device(id, make, model, serialNumber);
+        Device device = new Device(id, make, model, serialNumber, assetTag);
 
         // Store device information in Firebase
         if (id != null) {
@@ -90,6 +91,7 @@ public class save_item extends AppCompatActivity {
             editTextMake.setText("");
             editTextModel.setText("");
             editTextSerialNumber.setText("");
+            textView4.setText("");
         }
     }
 }

@@ -31,7 +31,7 @@ public class log_in extends AppCompatActivity {
                 Intent i = new Intent(
                         getApplicationContext(),
                         //Default MainActivity3.class
-                        scan_button.class
+                        UserDetails.class
 
                 );
 
