@@ -80,12 +80,21 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
 
     // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-storage")
+
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore")
 
     //https://www.youtube.com/watch?v=pOKPQ8rYe6g&t=346s
     //Google Maps
     //AIzaSyCgQdY5-KNkZtmpU1KhvqoSdKWcPD-yt_M
     implementation("com.google.android.gms:play-services-maps:18.1.0")
+
+    // For image capturing
+    implementation ("androidx.core:core:1.12.0")
+
+// To handle images
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
 

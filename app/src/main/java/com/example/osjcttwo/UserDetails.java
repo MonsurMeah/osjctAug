@@ -35,7 +35,7 @@ public class UserDetails extends AppCompatActivity {
                 Intent i = new Intent(
                         getApplicationContext(),
                         //Default MainActivity3.class
-                        scan_button.class
+                        Features_Menu.class
 
                 );
 
