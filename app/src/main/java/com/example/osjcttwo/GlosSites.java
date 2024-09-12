@@ -1,6 +1,9 @@
 package com.example.osjcttwo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,5 +38,19 @@ public class GlosSites extends AppCompatActivity {
 
         adapter2 = new MyCustomAdapter(site_modelArrayList2, getApplicationContext());
         listView2.setAdapter(adapter2);
+
+        // Handle item click in ListView
+        listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected site name
+                String selectedSite = site_modelArrayList2.get(position).getSiteName();
+
+                // Create an intent to pass the selected site back to save_item activity
+                Intent intent = new Intent(GlosSites.this, save_item.class);
+                intent.putExtra("selectedSite", selectedSite);
+                startActivity(intent);  // Start the save_item activity
+            }
+        });
     }
 }

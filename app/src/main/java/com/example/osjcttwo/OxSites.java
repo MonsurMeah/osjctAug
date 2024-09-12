@@ -1,6 +1,9 @@
 package com.example.osjcttwo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,12 +40,26 @@ public class OxSites extends AppCompatActivity {
         site_modelArrayList3.add(new site_model("Shotover", R.drawable.shotover));
         site_modelArrayList3.add(new site_model("Spencer Court", R.drawable.spencercourt));
         site_modelArrayList3.add(new site_model("Stirlings", R.drawable.stirlings));
-        site_modelArrayList3.add(new site_model("The meadows", R.drawable.themeadows));
+        site_modelArrayList3.add(new site_model("The Meadows", R.drawable.themeadows));
         site_modelArrayList3.add(new site_model("Townsend House", R.drawable.townsendhouse));
         site_modelArrayList3.add(new site_model("Westgate House", R.drawable.westgatehouse));
         // Add more items...
 
         adapter3 = new MyCustomAdapter(site_modelArrayList3, getApplicationContext());
         listView3.setAdapter(adapter3);
+
+        // Handle item click in ListView
+        listView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected site name
+                String selectedSite = site_modelArrayList3.get(position).getSiteName();
+
+                // Create an intent to pass the selected site back to save_item activity
+                Intent intent = new Intent(OxSites.this, save_item.class);
+                intent.putExtra("selectedSite", selectedSite);
+                startActivity(intent);  // Start the save_item activity
+            }
+        });
     }
 }

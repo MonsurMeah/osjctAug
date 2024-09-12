@@ -1,6 +1,9 @@
 package com.example.osjcttwo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,9 +18,9 @@ public class WiltSites extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wilt_list);  // Make sure you have activity_list4.xml
+        setContentView(R.layout.wilt_list);  // Ensure this layout contains listview4
 
-        listView4 = findViewById(R.id.listview4);  // Make sure you have listview4 in activity_list4.xml
+        listView4 = findViewById(R.id.listview4);  // Ensure this ID matches with your layout file
 
         site_modelArrayList4 = new ArrayList<>();
         site_modelArrayList4.add(new site_model("Ashwood", R.drawable.ashwood));
@@ -38,14 +41,23 @@ public class WiltSites extends AppCompatActivity {
         site_modelArrayList4.add(new site_model("St Wilfreds", R.drawable.stwilfrids));
         site_modelArrayList4.add(new site_model("Watersmead", R.drawable.watersmead));
         site_modelArrayList4.add(new site_model("Willowcroft", R.drawable.willowcroft));
-
-
-
-
-
         // Add more items as needed...
 
         adapter4 = new MyCustomAdapter(site_modelArrayList4, getApplicationContext());
         listView4.setAdapter(adapter4);
+
+        // Handle item click in ListView
+        listView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected site name
+                String selectedSite = site_modelArrayList4.get(position).getSiteName();
+
+                // Create an intent to pass the selected site back to save_item activity
+                Intent intent = new Intent(WiltSites.this, save_item.class);
+                intent.putExtra("selectedSite", selectedSite);
+                startActivity(intent);  // Start the save_item activity
+            }
+        });
     }
 }

@@ -1,6 +1,9 @@
 package com.example.osjcttwo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;  // <-- Import the View class
+import android.widget.AdapterView;  // <-- Import AdapterView for OnItemClickListener
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,9 +39,23 @@ public class LincSites extends AppCompatActivity {
         site_modelArrayList1.add(new site_model("Southfield House", R.drawable.southfieldhouse));
         site_modelArrayList1.add(new site_model("The Poplars", R.drawable.whitefriars));
         site_modelArrayList1.add(new site_model("Whitefriars", R.drawable.whitefriars));
-        // Add more items...
+        // Add more sites as needed...
 
         adapter1 = new MyCustomAdapter(site_modelArrayList1, getApplicationContext());
         listView1.setAdapter(adapter1);
+
+        // Handle the item click in the ListView
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected site name
+                String selectedSite = site_modelArrayList1.get(position).getSiteName();
+
+                // Create an intent to pass the selected site back to save_item activity
+                Intent intent = new Intent(LincSites.this, save_item.class);
+                intent.putExtra("selectedSite", selectedSite);
+                startActivity(intent);  // Start the save_item activity
+            }
+        });
     }
 }

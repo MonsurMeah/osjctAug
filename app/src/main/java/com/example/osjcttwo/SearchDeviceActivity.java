@@ -2,6 +2,7 @@ package com.example.osjcttwo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class SearchDeviceActivity extends AppCompatActivity {
 
     private EditText editTextSearchMake, editTextSearchModel, editTextSearchSerial;
-    private Button buttonSearchMake, buttonSearchModel, buttonSearchSerial;
+    private Button buttonSearchMake, buttonSearchModel, buttonSearchSerial, button5;
     private TextView textViewResult;
 
     private DatabaseReference databaseDevices;
@@ -39,6 +40,7 @@ public class SearchDeviceActivity extends AppCompatActivity {
         buttonSearchModel = findViewById(R.id.buttonSearchModel);
         buttonSearchSerial = findViewById(R.id.buttonSearchSerial);
         textViewResult = findViewById(R.id.textViewResult);
+        button5 = findViewById(R.id.button5);
 
         // Set up button click listeners for each search option
         buttonSearchMake.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +62,11 @@ public class SearchDeviceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 searchDeviceByField("serialNumber", editTextSearchSerial.getText().toString().trim());
             }
+        });
+
+        button5.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), Features_Menu.class);
+            startActivity(i);
         });
     }
 

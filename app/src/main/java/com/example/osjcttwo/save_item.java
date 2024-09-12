@@ -1,6 +1,5 @@
 package com.example.osjcttwo;
 
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,10 +15,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class save_item extends AppCompatActivity {
 
-    private Button button, buttonSubmit;
-    private TextView textView4;
+    private Button button, buttonSubmit,button5;
+    private TextView textView4, textView5; // Declare TextView for site name
     private EditText editTextMake, editTextModel, editTextSerialNumber;
-
     private DatabaseReference databaseDevices;
 
     @Override
@@ -29,15 +27,23 @@ public class save_item extends AppCompatActivity {
 
         // Initialize the TextViews and Buttons
         textView4 = findViewById(R.id.textView4);
+        textView5 = findViewById(R.id.textView5); // Initialize new TextView for site name
         button = findViewById(R.id.button);
+        button5 = findViewById(R.id.button5);
 
         // Retrieve the asset tag from the intent
         Intent intent = getIntent();
         String assetTag = intent.getStringExtra("assetTag");
+        String selectedSite = intent.getStringExtra("selectedSite"); // Retrieve the selected site name
 
         // Display the asset tag in the TextView
         if (assetTag != null) {
             textView4.setText(assetTag);  // Preserve the asset tag
+        }
+
+        // Display the selected site in textView5
+        if (selectedSite != null) {
+            textView5.setText(selectedSite);  // Set the selected site in textView5
         }
 
         // Initialize Firebase Database reference
@@ -62,6 +68,12 @@ public class save_item extends AppCompatActivity {
             Intent i = new Intent(getApplicationContext(), ListsMenu.class);
             startActivity(i);
         });
+
+        button5.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(), Features_Menu.class);
+            startActivity(i);
+        });
+
     }
 
     private void addDevice() {
@@ -70,8 +82,9 @@ public class save_item extends AppCompatActivity {
         String model = editTextModel.getText().toString().trim();
         String serialNumber = editTextSerialNumber.getText().toString().trim();
         String assetTag = textView4.getText().toString().trim();
+        String siteName = textView5.getText().toString().trim();  // Get the selected site name
 
-        if (make.isEmpty() || model.isEmpty() || assetTag.isEmpty() || serialNumber.isEmpty()) {
+        if (make.isEmpty() || model.isEmpty() || assetTag.isEmpty() || serialNumber.isEmpty() || siteName.isEmpty()) {
             Toast.makeText(this, "Please enter all the details", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -80,7 +93,7 @@ public class save_item extends AppCompatActivity {
         String id = databaseDevices.push().getKey();
 
         // Create a Device object
-        Device device = new Device(id, make, model, serialNumber, assetTag);
+        Device device = new Device(id, make, model, serialNumber, assetTag, siteName);  // Add site name to Device object
 
         // Store device information in Firebase
         if (id != null) {
@@ -92,6 +105,7 @@ public class save_item extends AppCompatActivity {
             editTextModel.setText("");
             editTextSerialNumber.setText("");
             textView4.setText("");
+            textView5.setText("");  // Clear the selected site
         }
     }
 }
