@@ -39,7 +39,7 @@ public class GlosSites extends AppCompatActivity {
         adapter2 = new MyCustomAdapter(site_modelArrayList2, getApplicationContext());
         listView2.setAdapter(adapter2);
 
-        // Handle item click in ListView
+        // Set up the click listener for list items
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

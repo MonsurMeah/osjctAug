@@ -22,6 +22,7 @@ public class OxSites extends AppCompatActivity {
 
         listView3 = findViewById(R.id.listview3);
 
+        // Initialize the site model array list with site names and corresponding images
         site_modelArrayList3 = new ArrayList<>();
         site_modelArrayList3.add(new site_model("Centurion House", R.drawable.centurionhouse));
         site_modelArrayList3.add(new site_model("Chilterns Court CC", R.drawable.chilternscourtcc));
@@ -40,15 +41,16 @@ public class OxSites extends AppCompatActivity {
         site_modelArrayList3.add(new site_model("Shotover", R.drawable.shotover));
         site_modelArrayList3.add(new site_model("Spencer Court", R.drawable.spencercourt));
         site_modelArrayList3.add(new site_model("Stirlings", R.drawable.stirlings));
-        site_modelArrayList3.add(new site_model("The Meadows", R.drawable.themeadows));
+        site_modelArrayList3.add(new site_model("The meadows", R.drawable.themeadows));
         site_modelArrayList3.add(new site_model("Townsend House", R.drawable.townsendhouse));
         site_modelArrayList3.add(new site_model("Westgate House", R.drawable.westgatehouse));
         // Add more items...
 
+        // Initialize the custom adapter
         adapter3 = new MyCustomAdapter(site_modelArrayList3, getApplicationContext());
         listView3.setAdapter(adapter3);
 
-        // Handle item click in ListView
+        // Set up the click listener for list items
         listView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

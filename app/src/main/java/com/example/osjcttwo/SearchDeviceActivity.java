@@ -1,15 +1,13 @@
 package com.example.osjcttwo;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,8 +16,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SearchDeviceActivity extends AppCompatActivity {
 
+    private static final String TAG = "SearchDeviceActivity";
+
     private EditText editTextSearchMake, editTextSearchModel, editTextSearchSerial;
-    private Button buttonSearchMake, buttonSearchModel, buttonSearchSerial, button5;
+    private Button buttonSearchMake, buttonSearchModel, buttonSearchSerial;
     private TextView textViewResult;
 
     private DatabaseReference databaseDevices;
@@ -40,7 +40,6 @@ public class SearchDeviceActivity extends AppCompatActivity {
         buttonSearchModel = findViewById(R.id.buttonSearchModel);
         buttonSearchSerial = findViewById(R.id.buttonSearchSerial);
         textViewResult = findViewById(R.id.textViewResult);
-        button5 = findViewById(R.id.button5);
 
         // Set up button click listeners for each search option
         buttonSearchMake.setOnClickListener(new View.OnClickListener() {
@@ -63,11 +62,6 @@ public class SearchDeviceActivity extends AppCompatActivity {
                 searchDeviceByField("serialNumber", editTextSearchSerial.getText().toString().trim());
             }
         });
-
-        button5.setOnClickListener(v -> {
-            Intent i = new Intent(getApplicationContext(), Features_Menu.class);
-            startActivity(i);
-        });
     }
 
     private void searchDeviceByField(String field, String valueToSearch) {
@@ -76,18 +70,26 @@ public class SearchDeviceActivity extends AppCompatActivity {
             return;
         }
 
+        Log.d(TAG, "Searching devices by " + field + " with value: " + valueToSearch);
+
         // Query the Firebase database to search for devices by the specified field
         databaseDevices.orderByChild(field).equalTo(valueToSearch).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d(TAG, "onDataChange: dataSnapshot exists? " + dataSnapshot.exists());
+
                 if (dataSnapshot.exists()) {
                     StringBuilder result = new StringBuilder();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Device device = snapshot.getValue(Device.class);
                         if (device != null) {
+                            Log.d(TAG, "Device found: " + device.getMake() + ", " + device.getModel() + ", " + device.getSiteName());
                             result.append("Make: ").append(device.getMake()).append("\n")
                                     .append("Model: ").append(device.getModel()).append("\n")
-                                    .append("Serial Number: ").append(device.getSerialNumber()).append("\n\n");
+                                    .append("Serial Number: ").append(device.getSerialNumber()).append("\n")
+                                    .append("Site Name: ").append(device.getSiteName()).append("\n\n");  // Add site name to result
+                        } else {
+                            Log.e(TAG, "Device is null");
                         }
                     }
                     textViewResult.setText(result.toString());
@@ -98,6 +100,7 @@ public class SearchDeviceActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Database error: " + databaseError.getMessage());
                 Toast.makeText(SearchDeviceActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

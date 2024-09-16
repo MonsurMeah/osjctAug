@@ -1,23 +1,29 @@
 package com.example.osjcttwo;
 public class Device {
+
     private String id;
     private String make;
     private String model;
     private String serialNumber;
     private String assetTag;
-    private String siteName;  // Add siteName field
+    private String siteName;
 
-    // Constructor to initialize all six fields
+    // Default constructor (needed for Firebase)
+    public Device() {
+        // Default constructor required for calls to DataSnapshot.getValue(Device.class)
+    }
+
+    // Parameterized constructor
     public Device(String id, String make, String model, String serialNumber, String assetTag, String siteName) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.serialNumber = serialNumber;
         this.assetTag = assetTag;
-        this.siteName = siteName;  // Initialize siteName
+        this.siteName = siteName;
     }
 
-    // Getters and Setters for all fields (optional)
+    // Getters and setters
     public String getId() {
         return id;
     }

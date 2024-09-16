@@ -18,10 +18,11 @@ public class WiltSites extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wilt_list);  // Ensure this layout contains listview4
+        setContentView(R.layout.wilt_list);  // Ensure this layout is set correctly
 
-        listView4 = findViewById(R.id.listview4);  // Ensure this ID matches with your layout file
+        listView4 = findViewById(R.id.listview4);  // Ensure the ListView ID is correct in wilt_list.xml
 
+        // Initialize the list with site names and corresponding images
         site_modelArrayList4 = new ArrayList<>();
         site_modelArrayList4.add(new site_model("Ashwood", R.drawable.ashwood));
         site_modelArrayList4.add(new site_model("Athelstan", R.drawable.athelstan));
@@ -43,17 +44,18 @@ public class WiltSites extends AppCompatActivity {
         site_modelArrayList4.add(new site_model("Willowcroft", R.drawable.willowcroft));
         // Add more items as needed...
 
+        // Initialize the custom adapter
         adapter4 = new MyCustomAdapter(site_modelArrayList4, getApplicationContext());
         listView4.setAdapter(adapter4);
 
-        // Handle item click in ListView
+        // Set up the click listener for list items
         listView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected site name
                 String selectedSite = site_modelArrayList4.get(position).getSiteName();
 
-                // Create an intent to pass the selected site back to save_item activity
+                // Create an intent to pass the selected site back to the save_item activity
                 Intent intent = new Intent(WiltSites.this, save_item.class);
                 intent.putExtra("selectedSite", selectedSite);
                 startActivity(intent);  // Start the save_item activity

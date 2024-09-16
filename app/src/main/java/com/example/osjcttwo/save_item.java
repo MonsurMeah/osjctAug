@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class save_item extends AppCompatActivity {
 
-    private Button button, buttonSubmit,button5;
+    private Button button, buttonSubmit;
     private TextView textView4, textView5; // Declare TextView for site name
     private EditText editTextMake, editTextModel, editTextSerialNumber;
     private DatabaseReference databaseDevices;
@@ -29,7 +29,6 @@ public class save_item extends AppCompatActivity {
         textView4 = findViewById(R.id.textView4);
         textView5 = findViewById(R.id.textView5); // Initialize new TextView for site name
         button = findViewById(R.id.button);
-        button5 = findViewById(R.id.button5);
 
         // Retrieve the asset tag from the intent
         Intent intent = getIntent();
@@ -68,12 +67,6 @@ public class save_item extends AppCompatActivity {
             Intent i = new Intent(getApplicationContext(), ListsMenu.class);
             startActivity(i);
         });
-
-        button5.setOnClickListener(v -> {
-            Intent i = new Intent(getApplicationContext(), Features_Menu.class);
-            startActivity(i);
-        });
-
     }
 
     private void addDevice() {
