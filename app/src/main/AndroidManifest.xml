@@ -30,6 +30,18 @@
         android:theme="@style/Theme.Osjcttwo"
         tools:targetApi="31">
         <activity
+            android:name=".DeviceAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ViewDevicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadTestDevices"
+            android:exported="false" />
+        <activity
+            android:name=".AdminFeatures_Menu"
+            android:exported="false" />
+        <activity
             android:name=".CameraUploadActivity"
             android:exported="false" />
         <activity

@@ -13,7 +13,7 @@ import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
 public class Features_Menu extends AppCompatActivity {
-    Button btn_scan, btn_reporting, btn_problem;  // Add btn_reporting
+    Button btn_scan, btn_reporting, btn_problem, button6;  // Add btn_reporting
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class Features_Menu extends AppCompatActivity {
         // Initialize the reporting button
         btn_reporting = findViewById(R.id.btn_reporting);
         btn_problem = findViewById(R.id.btn_problem);
+        button6 = findViewById(R.id.button6);
 
         // Set click listener for the scan button
         btn_scan.setOnClickListener(v -> scanCode());
@@ -34,6 +35,8 @@ public class Features_Menu extends AppCompatActivity {
         btn_reporting.setOnClickListener(v -> openReporting());
 
         btn_problem.setOnClickListener(v -> openProblem());
+
+        button6.setOnClickListener(v -> openAdminMode());
     }
 
     // Method to initiate the scan
@@ -80,6 +83,11 @@ public class Features_Menu extends AppCompatActivity {
 
     private void openProblem() {
         Intent intent = new Intent(getApplicationContext(), CameraUploadActivity.class);
+        startActivity(intent);
+    }
+
+    private void openAdminMode() {
+        Intent intent = new Intent(getApplicationContext(), AdminFeatures_Menu.class);
         startActivity(intent);
     }
 
